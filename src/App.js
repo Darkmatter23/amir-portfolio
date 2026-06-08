@@ -2,25 +2,11 @@
 
 const PROJECTS = [
   {
-    name: 'footy-edge',
-    description: 'Football match prediction and paper-betting pipeline. Dixon-Coles model + Gradient Boosted Decision Trees, SQLite data store, Flask UI. Backtested against historical Premier League data.',
-    stack: 'Python · SQLite · Flask · scikit-learn',
-    github: 'https://github.com/Darkmatter23/footy-edge',
-    status: 'Active',
-  },
-  {
     name: 'JARVIS',
     description: 'Personal AI director of operations and second brain. Orchestrates job search, learning, and project execution via Claude. File-based memory system, consultant personas, and automated workflows.',
     stack: 'Claude API · Python · n8n · Cowork',
     github: null,
     status: 'Active',
-  },
-  {
-    name: 'World Cup AI',
-    description: 'Machine learning pipeline to predict FIFA World Cup match outcomes. Feature engineering from historical international results, ELO ratings, and team form.',
-    stack: 'Python · scikit-learn · Pandas',
-    github: 'https://github.com/Darkmatter23/world-cup-ai',
-    status: 'Completed',
   },
 ];
 
