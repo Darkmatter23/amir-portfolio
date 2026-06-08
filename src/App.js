@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // ─── CONTENT — edit here ───────────────────────────────────────────────────
 
 const PROJECTS = [
@@ -311,6 +313,56 @@ const s = {
     color: 'var(--muted)',
     fontStyle: 'italic',
   },
+  newsletter: {
+    marginBottom: 80,
+    padding: '28px 32px',
+    border: '1px solid var(--border)',
+  },
+  newsletterLabel: {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 11,
+    color: 'var(--accent)',
+    letterSpacing: '0.12em',
+    textTransform: 'uppercase',
+    marginBottom: 12,
+  },
+  newsletterRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 24,
+    flexWrap: 'wrap',
+  },
+  newsletterText: {
+    fontSize: 15,
+    color: 'var(--muted)',
+    margin: 0,
+  },
+  newsletterForm: {
+    display: 'flex',
+    gap: 8,
+    flexShrink: 0,
+  },
+  newsletterInput: {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 13,
+    padding: '8px 14px',
+    background: 'transparent',
+    border: '1px solid var(--border)',
+    color: 'var(--text)',
+    outline: 'none',
+    width: 220,
+  },
+  newsletterBtn: {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 13,
+    padding: '8px 16px',
+    background: 'var(--accent)',
+    color: '#0f0f0f',
+    border: 'none',
+    cursor: 'pointer',
+    letterSpacing: '0.05em',
+  },
   contact: {
     padding: '48px 0',
     borderTop: '1px solid var(--border)',
@@ -339,12 +391,20 @@ const s = {
 // ─── COMPONENT ─────────────────────────────────────────────────────────────
 
 export default function App() {
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = () => {
+    const url = email
+      ? `https://amirgoudarzi.substack.com?email=${encodeURIComponent(email)}`
+      : 'https://amirgoudarzi.substack.com';
+    window.open(url, '_blank');
+  };
+
   return (
     <div style={s.page}>
 
       {/* Nav */}
       <nav style={s.nav}>
-        <span style={s.navName}>amir goudarzi</span>
         <div style={s.navLinks}>
           <a href="#experience" style={{ color: 'var(--muted)' }}>experience</a>
           <a href="#skills" style={{ color: 'var(--muted)' }}>skills</a>
@@ -355,6 +415,25 @@ export default function App() {
           <a href="#contact" style={{ color: 'var(--muted)' }}>contact</a>
         </div>
       </nav>
+
+      {/* Newsletter */}
+      <section style={s.newsletter}>
+        <p style={s.newsletterLabel}>Newsletter</p>
+        <div style={s.newsletterRow}>
+          <p style={s.newsletterText}>Weekly reads on AI, ML research, and building in public.</p>
+          <div style={s.newsletterForm}>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleSubscribe()}
+              style={s.newsletterInput}
+            />
+            <button onClick={handleSubscribe} style={s.newsletterBtn}>Subscribe →</button>
+          </div>
+        </div>
+      </section>
 
       {/* Hero */}
       <section style={s.hero}>
