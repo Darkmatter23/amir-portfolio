@@ -1,12 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0f0f0f;
-  --surface: #161616;
+  --bg: #000000;
+  --surface: #111111;
   --border: #222;
   --text: #e8e2d9;
   --muted: #7a7570;
-  --accent: #c8622a;
+  --accent: #FFD700;
   --font-serif: 'DM Serif Display', Georgia, serif;
   --font-mono: 'DM Mono', 'Courier New', monospace;
   --font-sans: 'DM Sans', system-ui, sans-serif;
